@@ -11,7 +11,10 @@ def validate_youtube_url(value):
     pattern = r'^http:\/\/(?:www\.)?youtube.com\/watch\?(?=.*v=\w+)(?:\S+)?$'
     
     if not value.is_empty():
-        con = urllib2.urlopen(value.value)
+        try:
+            con = urllib2.urlopen(value.value)
+        except ValueError:
+            raise forms.ValidationError(_(u'Not a valid URL'))
         if con.code != 200:
             raise forms.ValidationError(_(u'Not a valid Youtube URL'))
         if value.value[:16] == 'http://youtu.be/':
