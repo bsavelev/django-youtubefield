@@ -1,6 +1,5 @@
 import urlparse
 import os
-from django.core import validators
 from django.core.validators import EMPTY_VALUES
 
 
