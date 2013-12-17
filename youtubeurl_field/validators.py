@@ -7,7 +7,7 @@ from django import forms
 
 def validate_youtube_url(value):
     '''El patron lo saque de http://stackoverflow.com/questions/2964678/jquery-youtube-url-validation-with-regex'''
-    pattern = r'^http:\/\/(?:www\.)?youtube.com\/watch\?(?=.*v=\w+)(?:\S+)?$'
+    pattern = r'^http(s)?:\/\/(?:www\.)?youtube.com\/watch\?(?=.*v=\w+)(?:\S+)?$'
     
     if not value.is_empty():
         try:
